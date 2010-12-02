@@ -1,4 +1,4 @@
-= Client-Side Externals =
+# Client-Side Externals
 
 External client-side resources are typically included in this directory.  These
 could be managed with git submodules.
