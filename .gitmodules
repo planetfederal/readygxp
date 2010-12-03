@@ -4,3 +4,6 @@
 [submodule "app/static/externals/gxp"]
 	path = app/static/externals/gxp
 	url = git@github.com:opengeo/gxp.git
+[submodule "app/static/externals/openlayers"]
+	path = app/static/externals/openlayers
+	url = git@github.com:openlayers/openlayers.git
