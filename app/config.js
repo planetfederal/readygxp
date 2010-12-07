@@ -5,7 +5,7 @@ var urls = [
 
 // debug mode loads unminified scripts
 // assumes markup pulls in scripts under the path /servlet_name/script/
-if (java.lang.System.getProperty("READYGO_DEBUG")) {
+if (java.lang.System.getProperty("READYGXP_DEBUG")) {
     var fs = require("fs");
     var config = fs.normal(fs.join(module.directory, "..", "buildjs.cfg"));
     urls.push(
