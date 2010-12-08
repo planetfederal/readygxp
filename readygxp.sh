@@ -44,6 +44,7 @@ cd $1
 git submodule init
 git submodule update
 rm -rf .git
+rm readygxp.sh
 git init
 
 echo "Application template created in $TARGET"
