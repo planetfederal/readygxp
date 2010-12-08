@@ -37,8 +37,8 @@ function slash(config) {
                 }
             }
             return app(request);
-        }
-    }
+        };
+    };
 }
 
 exports.middleware = [
