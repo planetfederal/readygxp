@@ -16,15 +16,18 @@ var app = exports.app = function(env) {
     return response;
 };
 
-var pass = exports.pass = function(url) {
+var pass = exports.pass = function(config) {
+    if (typeof config == "string") {
+        config = {url: config};
+    }
     return function(env, match) {
         var request = new Request(env);
-        var newUrl = url + match + (request.queryString ? "?" + request.queryString : "");
-        return proxyPass(request, newUrl);
+        var newUrl = config.url + match + (request.queryString ? "?" + request.queryString : "");
+        return proxyPass(request, newUrl, config.preserveHost);
     };
 };
 
-function proxyPass(request, url) {
+function proxyPass(request, url, preserveHost) {
     var parts = url.split("/");
     var response;
     if (parts[0] !== (request.scheme + ":") || parts[1] !== "") {
@@ -36,7 +39,7 @@ function proxyPass(request, url) {
         var exchange = client.request({
             url: url,
             method: request.method,
-            headers: merge({host: host}, request.headers),
+            headers: preserveHost ? merge({host: host}, request.headers) : request.headers,
             data: request.contentLength && request.input
         });
         exchange.wait();
