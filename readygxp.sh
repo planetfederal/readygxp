@@ -40,9 +40,31 @@ if [ "$?" != "0" ]; then
    exit 1
 fi
 
+echo "Initializing submodules..."
 cd $1
 git submodule init
 git submodule update
+
+echo "Initializing git-svn for OpenLayers submodule..."
+pushd app/static/externals/openlayers
+git checkout 2.x
+git svn init http://svn.openlayers.org/trunk/openlayers
+git update-ref refs/remotes/git-svn origin/2.x
+popd
+
+echo "Initializing git-svn for GeoExt submodule..."
+pushd app/static/externals/geoext
+git checkout master
+git svn init http://svn.geoext.org/core/trunk/geoext
+git update-ref refs/remotes/git-svn origin/master
+popd
+
+echo "Checking out gxp master..."
+pushd app/static/externals/gxp
+git checkout master
+popd
+
+echo "Cleaning up..."
 rm -rf .git
 rm readygxp.sh
 git init
