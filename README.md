@@ -5,10 +5,7 @@ GeoExt applications bound for a servlet container.
 
 ## Setup
 
-    git clone git@github.com:opengeo/readygxp.git
-    cd readygxp
-    git submodule init
-    git submodule update
+    curl https://github.com/opengeo/readygxp/raw/master/readygxp.sh | sh -s myapp
 
 Enhancements to come later.  For now, an application can be run as follows:
 
