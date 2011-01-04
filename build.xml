@@ -49,7 +49,7 @@
 
         <mkdir dir="${build}/${ant.project.name}/WEB-INF/app/static/script"/>
         <java jar="${build}/ringo/run.jar" fork="true" failonerror="true">
-            <sysproperty key="ringo.classpath" path="${build}/ringo/lib/**"/>
+            <sysproperty key="ringo.home" path="${build}/ringo"/>
             <arg path="${build}/buildkit/lib/buildkit/build.js"/>
             <arg line="-o ${build}/${ant.project.name}/WEB-INF/app/static/script buildjs.cfg"/>
         </java>
@@ -89,7 +89,7 @@
 
     <target name="debug">
         <java jar="${build}/ringo/run.jar" fork="true">
-            <sysproperty key="ringo.classpath" path="${build}/ringo/lib/**"/>
+            <sysproperty key="ringo.home" path="${build}/ringo"/>
             <arg path="app/main.js"/>
         </java>
     </target>
