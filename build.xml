@@ -20,7 +20,7 @@
             <arg line="pull origin master"/>
         </exec>
         <exec executable="git" dir="${build}/ringo" failonerror="true">
-            <arg line="checkout e0dce2be640fc6fb43a1239d252948d10687ba9c"/>
+            <arg line="checkout dc81ba9bbb7a281024f1876557bb195d1e1964de"/>
         </exec>
 
         <echo message="building ringo jars"/>
