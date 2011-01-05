@@ -36,7 +36,7 @@
         <exec executable="git" dir="${build}/buildkit" failonerror="false">
             <arg line="clone -nq git://github.com/tschaub/buildkit.git ."/>
         </exec>
-        <exec executable="git" dir="${build}/ringo" failonerror="true">
+        <exec executable="git" dir="${build}/buildkit" failonerror="true">
             <arg line="pull origin master"/>
         </exec>
         <exec executable="git" dir="${build}/buildkit" failonerror="true">
