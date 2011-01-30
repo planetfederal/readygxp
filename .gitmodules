@@ -1,9 +1,9 @@
 [submodule "app/static/externals/geoext"]
 	path = app/static/externals/geoext
-	url = git@github.com:opengeo/GeoExt.git
+	url = https://github.com/opengeo/GeoExt.git
 [submodule "app/static/externals/gxp"]
 	path = app/static/externals/gxp
-	url = git@github.com:opengeo/gxp.git
+	url = https://github.com/opengeo/gxp.git
 [submodule "app/static/externals/openlayers"]
 	path = app/static/externals/openlayers
-	url = git@github.com:openlayers/openlayers.git
+	url = https://github.com/openlayers/openlayers.git

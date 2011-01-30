@@ -34,7 +34,7 @@ if [ -e $TARGET ]; then
 fi
 
 echo "Creating new application template $TARGET..."
-git clone git@github.com:opengeo/readygxp.git $1
+git clone https://github.com/opengeo/readygxp.git $1
 if [ "$?" != "0" ]; then
    echo "Could not clone application template."  
    exit 1
