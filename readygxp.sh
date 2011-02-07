@@ -67,6 +67,7 @@ popd
 echo "Cleaning up..."
 rm -rf .git
 rm readygxp.sh
+sed "s/readygxp/$TARGET/g" build.xml > .tmp && mv .tmp build.xml
 
 echo "Reinitializing repo..."
 git init
