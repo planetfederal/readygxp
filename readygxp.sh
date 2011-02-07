@@ -67,6 +67,8 @@ popd
 echo "Cleaning up..."
 rm -rf .git
 rm readygxp.sh
+
+echo "Reinitializing repo..."
 git init
 
 echo "Application template created in $TARGET"
