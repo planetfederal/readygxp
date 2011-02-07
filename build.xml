@@ -77,16 +77,22 @@
                 <exclude name="**/script/**"/>
             </fileset>
         </copy>
+        <!-- copy Ext resources -->
         <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/ext">
             <fileset dir="app/static/externals/ext"/>
         </copy>
-        <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/geoext/resources">
-            <fileset dir="app/static/externals/geoext/resources"/>
-        </copy>
+        <!-- copy OpenLayers resources -->
         <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/openlayers/theme">
             <fileset dir="app/static/externals/openlayers/theme"/>
         </copy>
-        
+        <!-- copy GeoExt resources -->
+        <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/geoext/resources">
+            <fileset dir="app/static/externals/GeoExt/resources"/>
+        </copy>
+        <!-- copy gxp resources -->
+        <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/gxp/src/theme">
+            <fileset dir="app/static/externals/gxp/src/theme"/>
+        </copy>
     </target>
 
     <target name="debug">
