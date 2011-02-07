@@ -98,6 +98,18 @@
         </java>
     </target>
 
+    <target name="static-war" depends="dist">
+        <war destfile="${build}/${ant.project.name}.war" needxmlfile="false">
+            <fileset dir="${build}/${ant.project.name}/WEB-INF/app/static"/>
+        </war>
+    </target>
+
+    <target name="war" depends="dist">
+        <war destfile="${build}/${ant.project.name}.war">
+            <fileset dir="${build}/${ant.project.name}"/>
+        </war>
+    </target>
+
     <target name="clean" description="remove previous build and all dependencies">
         <delete dir="${build}"/>
     </target>
