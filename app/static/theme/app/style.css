@@ -10,3 +10,8 @@ body {
 }
 
 /* application css goes here */
+
+.olControlAttribution {
+    font-size: 9px;
+    bottom: 2px;
+}
