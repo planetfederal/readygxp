@@ -98,7 +98,7 @@ var createProxyRequestProps = exports.createProxyRequestProps = function(config)
         };
     }
     return props;
-}
+};
 
 function proxyPass(config) {
     var response;
@@ -131,3 +131,4 @@ function proxyPass(config) {
         body: new MemoryStream(exchange.contentBytes)
     };
 }
+
