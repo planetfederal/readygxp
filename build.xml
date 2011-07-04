@@ -98,7 +98,7 @@
         </copy>
         <!-- copy GeoExt resources -->
         <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/geoext/resources">
-            <fileset dir="app/static/externals/GeoExt/resources"/>
+            <fileset dir="app/static/externals/geoext/resources"/>
         </copy>
         <!-- copy gxp resources -->
         <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/gxp/src/theme">
