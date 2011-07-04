@@ -7,7 +7,7 @@ created on top of the structure provided by Ready GXP.
 
 ## Setup
 
-    curl https://github.com/opengeo/readygxp/raw/master/readygxp.sh | sh -s myapp
+    curl -L https://github.com/opengeo/readygxp/raw/master/readygxp.sh | sh -s myapp
 
 Enhancements to come later.  For now, an application can be run as follows:
 
