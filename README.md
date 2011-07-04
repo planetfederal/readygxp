@@ -1,7 +1,9 @@
 # Ready GXP
 
 The intention of this project is to provide a simple reusable template for 
-GeoExt applications bound for a servlet container.
+GeoExt applications bound for a servlet container. To get started, see
+http://github.com/ahocevar/gxp-simpledemo/ for a simple WMS/WFS browser/editor
+created on top of the structure provided by Ready GXP.
 
 ## Setup
 
