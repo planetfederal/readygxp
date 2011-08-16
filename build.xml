@@ -13,38 +13,6 @@
 
         <mkdir dir="${build}"/>
 
-        <echo message="pulling in ringo (ignore fatal warning)"/>
-        <mkdir dir="${build}/ringo"/>
-        <exec executable="git" dir="${build}/ringo" failonerror="false">
-            <arg line="clone -nq git://github.com/ringo/ringojs.git ."/>
-        </exec>
-        <exec executable="git" dir="${build}/ringo" failonerror="true">
-            <arg line="pull origin master"/>
-        </exec>
-        <exec executable="git" dir="${build}/ringo" failonerror="true">
-            <arg line="checkout 7af8f2bba20890e4860973fea5254b55bd00c7d7"/>
-        </exec>
-
-        <echo message="building ringo jars"/>
-        <ant dir="${build}/ringo" target="jar"/>
-        <!-- uncomment this if you have additional jars in a lib dir
-        <copy todir="${build}/ringo/lib" flatten="true" includeEmptyDirs="false">
-            <fileset dir="lib"/>
-        </copy>
-        -->
-
-        <echo message="pulling in buildkit (ignore fatal warning)"/>
-        <mkdir dir="${build}/buildkit"/>
-        <exec executable="git" dir="${build}/buildkit" failonerror="false">
-            <arg line="clone -nq git://github.com/tschaub/buildkit.git ."/>
-        </exec>
-        <exec executable="git" dir="${build}/buildkit" failonerror="true">
-            <arg line="pull origin master"/>
-        </exec>
-        <exec executable="git" dir="${build}/buildkit" failonerror="true">
-            <arg line="checkout 86eacbd7b3bf62b8e99f46911dd5a633464b8570"/>
-        </exec>
-
         <echo message="pulling in submodules"/>
         <exec executable="git" failonerror="true">
             <arg line="submodule init"/>
@@ -56,14 +24,17 @@
             <arg line="submodule update"/>
         </exec>
 
+        <echo message="building ringo jars"/>
+        <ant dir="externals/ringo" target="jar"/>
+
     </target>
     
     <target name="buildjs">
 
         <mkdir dir="${build}/${ant.project.name}/WEB-INF/app/static/script"/>
-        <java jar="${build}/ringo/run.jar" fork="true" failonerror="true">
-            <sysproperty key="ringo.home" path="${build}/ringo"/>
-            <arg path="${build}/buildkit/lib/buildkit/build.js"/>
+        <java jar="externals/ringo/run.jar" fork="true" failonerror="true">
+            <sysproperty key="ringo.home" path="externals/ringo"/>
+            <arg path="externals/buildkit/lib/buildkit/build.js"/>
             <arg line="-o ${build}/${ant.project.name}/WEB-INF/app/static/script buildjs.cfg"/>
         </java>
 
@@ -80,7 +51,7 @@
             </fileset>
         </copy>
         <copy todir="${build}/${ant.project.name}/WEB-INF/lib" flatten="true" includeEmptyDirs="false">
-            <fileset dir="${build}/ringo/lib"/>
+            <fileset dir="externals/ringo/lib"/>
         </copy>
         <copy todir="${build}/${ant.project.name}/WEB-INF/app">
             <fileset dir="app">
@@ -107,18 +78,18 @@
     </target>
 
     <target name="debug">
-        <java jar="${build}/ringo/run.jar" fork="true">
+        <java jar="externals/ringo/run.jar" fork="true">
             <sysproperty key="app.proxy.geoserver" value="${app.proxy.geoserver}"/>
-            <sysproperty key="ringo.home" path="${build}/ringo"/>
+            <sysproperty key="ringo.home" path="externals/ringo"/>
             <arg path="app/main.js"/>
             <arg line="-p ${app.port}"/>
         </java>
     </target>
 
     <target name="debugall">
-        <java jar="${build}/ringo/run.jar" fork="true">
+        <java jar="externals/ringo/run.jar" fork="true">
             <sysproperty key="app.proxy.geoserver" value="${app.proxy.geoserver}"/>
-            <sysproperty key="ringo.home" path="${build}/ringo"/>
+            <sysproperty key="ringo.home" path="externals/ringo"/>
             <arg value="-d"/>
             <arg path="app/main.js"/>
             <arg line="-p ${app.port}"/>
