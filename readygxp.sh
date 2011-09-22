@@ -45,11 +45,9 @@ cd $1
 git submodule init
 git submodule update
 
-echo "Initializing git-svn for OpenLayers submodule..."
+echo "Checking out OpenLayers master..."
 pushd app/static/externals/openlayers
-git checkout 2.x
-git svn init http://svn.openlayers.org/trunk/openlayers
-git update-ref refs/remotes/git-svn origin/2.x
+git checkout master
 popd
 
 echo "Initializing git-svn for GeoExt submodule..."
