@@ -13,3 +13,6 @@
 [submodule "externals/buildkit"]
 	path = externals/buildkit
 	url = git://github.com/tschaub/buildkit.git
+[submodule "externals/stick"]
+	path = externals/stick
+	url = https://github.com/hns/stick.git
