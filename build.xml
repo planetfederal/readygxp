@@ -83,7 +83,9 @@
     <target name="debug">
         <java jar="externals/ringo/run.jar" fork="true">
             <sysproperty key="app.proxy.geoserver" value="${app.proxy.geoserver}"/>
+            <sysproperty key="app.debug" value="1"/>
             <sysproperty key="ringo.home" path="externals/ringo"/>
+            <sysproperty key="ringo.modulepath" path="externals"/>
             <arg path="app/main.js"/>
             <arg line="-p ${app.port}"/>
         </java>
@@ -92,7 +94,9 @@
     <target name="debugall">
         <java jar="externals/ringo/run.jar" fork="true">
             <sysproperty key="app.proxy.geoserver" value="${app.proxy.geoserver}"/>
+            <sysproperty key="app.debug" value="1"/>
             <sysproperty key="ringo.home" path="externals/ringo"/>
+            <sysproperty key="ringo.modulepath" path="externals"/>
             <arg value="-d"/>
             <arg path="app/main.js"/>
             <arg line="-p ${app.port}"/>

@@ -7,7 +7,7 @@ app.mount("/proxy", require("./proxy").app);
 
 // debug mode loads unminified scripts
 // assumes markup pulls in scripts under the path /servlet_name/script/
-if (true || java.lang.System.getProperty("app.debug")) {
+if (java.lang.System.getProperty("app.debug")) {
     var fs = require("fs");
     var config = fs.normal(fs.join(module.directory, "..", "buildjs.cfg"));
     app.mount("/script/", require("./autoloader").App(config));
