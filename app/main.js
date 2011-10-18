@@ -2,7 +2,7 @@ var {Application} = require("stick");
 
 var app = exports.app = Application();
 app.configure("notfound", "error", "static", "params", "mount");
-app.static(module.resolve("static"));
+app.static(module.resolve("static"), "index.html");
 app.mount("/proxy", require("./proxy").app);
 
 // debug mode loads unminified scripts
