@@ -3,12 +3,8 @@
 
 var {Application} = require("stick");
 var FS = require("fs");
-
-// TODO: unhack this
-var path = FS.normal(FS.join(module.directory, "..", "externals", "buildkit", "lib"));
-require.paths.push(path);
-var CONFIG = require("buildkit/config");
-var MERGE = require("buildkit/merge");
+var CONFIG = require("buildkit").config;
+var MERGE = require("buildkit").merge;
 
 // TODO: convert this to a real template
 var template = '                                                            \n\
@@ -62,11 +58,6 @@ var scriptLoader = function(root, script) {
             body : [body]
         };
     };
-};
-
-
-var notFound = function() {
-    throw {notfound: true};
 };
 
 var App = function(config) {
