@@ -1,8 +1,8 @@
 // the autoloader injects scripts into the document dynamically
 // only suitable for development/debug mode
 
+var {Application} = require("stick");
 var FS = require("fs");
-var STATIC = require("ringo/middleware/static").middleware;
 
 // TODO: unhack this
 var path = FS.normal(FS.join(module.directory, "..", "externals", "buildkit", "lib"));
@@ -70,9 +70,8 @@ var notFound = function() {
 };
 
 var App = function(config) {
-    
     var sections = CONFIG.parse(config);
-    var group, root, order, urls = {};
+    var group, root, order, app, urls = {};
     for (var section in sections) {
         group = sections[section];
         // make root relative to config
@@ -82,8 +81,10 @@ var App = function(config) {
         // create lib loader
         urls["/" + section] = libLoader(section, order);
         // create static loader for all scripts in lib
-        var app = STATIC(root)(notFound);
-        urls["/@" + section] = app; 
+        app = Application();
+        app.configure("static");
+        app.static(root);
+        urls["/@" + section] = app;
     }
     return URLMap(urls);
     
@@ -118,8 +119,8 @@ var URLMap = function(map, options) {
         });
     }
     
-    return function(env, path) {
-        path = (path || env.pathInfo).replace(/\/+$/,"");
+    return function(env) {
+        var path = env.pathInfo.replace(/\/+$/,"");
         var hHost = env.host, sPort = env.port;
 
         for (var i = 0; i < mapping.length; i++) {
