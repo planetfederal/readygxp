@@ -62,6 +62,13 @@
                 <exclude name="**/script/**"/>
             </fileset>
         </copy>
+        <!-- copy stick -->
+        <copy todir="${build}/${ant.project.name}/WEB-INF/app/stick">
+            <fileset dir="externals/stick">
+                <include name="**/lib/**"/>
+                <include name="package.json"/>
+            </fileset>
+        </copy>
         <!-- copy Ext resources -->
         <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/ext">
             <fileset dir="app/static/externals/ext"/>
