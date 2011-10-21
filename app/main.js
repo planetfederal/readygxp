@@ -3,7 +3,7 @@ var {Application} = require("stick");
 var app = Application();
 app.configure("notfound", "error", "static", "params", "mount");
 app.static(module.resolve("static"), "index.html");
-app.mount("/proxy", require("./proxy").app);
+app.mount("/proxy", require("./root/proxy").app);
 
 // debug mode loads unminified scripts
 // assumes markup pulls in scripts under the path /servlet_name/script/
@@ -20,7 +20,7 @@ if (java.lang.System.getProperty("app.debug")) {
             geoserver = geoserver + "/";
         }
         // debug specific proxy
-        app.mount("/geoserver/", require("./proxy").pass({url: geoserver, preserveHost: true}));
+        app.mount("/geoserver/", require("./root/proxy").pass({url: geoserver, preserveHost: true}));
     }
 }
 

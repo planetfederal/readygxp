@@ -122,6 +122,14 @@
         </war>
     </target>
 
+    <target name="test">
+        <java jar="externals/ringo/run.jar" fork="true" failonerror="yes">
+            <sysproperty key="ringo.home" path="externals/ringo"/>
+            <sysproperty key="ringo.modulepath" path="externals"/>
+            <arg path="tests/all.js"/>
+        </java>
+    </target>
+
     <target name="clean" description="remove previous build and all dependencies">
         <delete dir="${build}"/>
     </target>
