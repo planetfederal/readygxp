@@ -15,7 +15,7 @@ if [ $# -gt 1 ]; then
 
         - or -
 
-      $ curl https://github.com/opengeo/readygxp/raw/master/readygxp.sh | sh -s myapp
+      $ curl -L https://github.com/opengeo/readygxp/raw/master/readygxp.sh | sh -s myapp
 
 END_DOCS
   exit 1
