@@ -28,11 +28,9 @@ pushd app\static\externals\openlayers
 call git checkout master
 popd
 
-echo Initializing git-svn for GeoExt submodule...
+echo Checking out GeoExt master...
 pushd app\static\externals\geoext
 call git checkout master
-call git svn init http://svn.geoext.org/core/trunk/geoext
-call git update-ref refs/remotes/git-svn origin/master
 popd
 
 echo Checking out gxp master...
