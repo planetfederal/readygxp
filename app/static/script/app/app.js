@@ -1,4 +1,18 @@
-// this is where your application code goes
+/**
+ * Add all your dependencies here.
+ *
+ * @require widgets/Viewer.js
+ * @require plugins/LayerTree.js
+ * @require plugins/OLSource.js
+ * @require plugins/OSMSource.js
+ * @require plugins/WMSCSource.js
+ * @require plugins/ZoomToExtent.js
+ * @require plugins/NavigationHistory.js
+ * @require plugins/Zoom.js
+ * @require plugins/AddLayers.js
+ * @require plugins/RemoveLayer.js
+ * @require RowExpander.js
+ */
 
 var app;
 Ext.onReady(function() {

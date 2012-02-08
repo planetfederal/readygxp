@@ -12,7 +12,7 @@ if (java.lang.System.getProperty("app.debug")) {
     var config = fs.normal(fs.join(module.directory, "..", "buildjs.cfg"));
     app.mount("/script/", require("./autoloader").App(config));
 
-    // proxy a remote geoserver on /geoserver by setting proxy.geoserver to remote URL
+    // proxy a remote geoserver on /geoserver by setting app.proxy.geoserver to remote URL
     // only recommended for debug mode
     var geoserver = java.lang.System.getProperty("app.proxy.geoserver");
     if (geoserver) {
@@ -20,7 +20,7 @@ if (java.lang.System.getProperty("app.debug")) {
             geoserver = geoserver + "/";
         }
         // debug specific proxy
-        app.mount("/geoserver/", require("./root/proxy").pass({url: geoserver, preserveHost: true}));
+        app.mount("/geoserver/", require("./root/proxy").pass({url: geoserver, preserveHost: true, allowAuth: true}));
     }
 }
 
