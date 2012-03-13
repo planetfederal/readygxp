@@ -1,6 +1,6 @@
 [submodule "app/static/externals/geoext"]
 	path = app/static/externals/geoext
-	url = https://bartvde@github.com/geoext/geoext.git
+	url = https://github.com/geoext/geoext.git
 [submodule "app/static/externals/gxp"]
 	path = app/static/externals/gxp
 	url = https://github.com/opengeo/gxp.git
