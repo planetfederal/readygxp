@@ -9,6 +9,12 @@ created on top of the structure provided by Ready GXP.
 
     curl -L https://github.com/opengeo/readygxp/raw/master/readygxp.sh | sh -s myapp
 
+## Setup on Windows
+
+    Use git from the Windows command prompt (this is an option at setup)
+    Download https://github.com/opengeo/readygxp/raw/master/readygxp.bat into the directory where you want to create your app
+    Run readygxp.bat
+
 Enhancements to come later.  For now, an application can be run as follows:
 
 ## Debug Mode
