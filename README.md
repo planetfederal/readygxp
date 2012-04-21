@@ -35,3 +35,30 @@ To create a servlet run the following:
     ant
 
 The servlet will be assembled in the build directory.
+
+## Deploying App to an OpenGeo Suite Instance
+
+Ready GXP uses [Cargo](http://cargo.codehaus.org/) to deploy apps to a remote
+OpenGeo Suite instance's servlet container. The name of the app is set in root element of the `build.xml` file and defaults to `readygxp`:
+
+    <project name="readygxp" default="dist" basedir=".">
+
+If the app only consists of static files (i.e. no server-side JavaScript), use
+the `deploy-static` target to deploy, otherwise use `deploy`. A typical ant
+command to deploy your app named `readygxp` to http://my.suite-instance.com:8080/readygxp/` is
+
+    ant deploy-static -Dcargo.host=my.suite-instance.com -Dcargo.password=abc123
+
+To undeploy the app, use
+
+    ant undeploy -Dcargo.host=my.suite-instance.com -Dcargo.password=abc123
+
+There are more Cargo options available to the `ant deploy`, `ant deploy-static` and `ant undeploy` commands, and all are appended by using `-D<option>=<value>`:
+
+* *cargo.host*: The OpenGeo Suite host to deploy to. Default is `localhost`.
+* *cargo.port*: The port the OpenGeo Suite's servlet container runs on. Default is `8080`.
+* *cargo.container*: The servlet container used by the OpenGeo Suite. Available values are `glassfish3x`, `jboss4x`, `jboss42x`, `jboss5x`, `jboss51x`, `jboss6x`, `jboss61x`, `jboss7x`, `jboss71x`, `jetty6x`, `jetty7x`, `jetty8x`. Default is `tomcat6x`.
+* *cargo.username*: The username for the container management servlet. Default is `manager`.
+* *cargo.password*: The password for the container management servlet. No default.
+* *cargo.context*: The name of the servlet context for the app (i.e. the url path for the app). Default is the project name specified in the `build.xml` file.
+
