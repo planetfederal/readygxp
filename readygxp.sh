@@ -61,11 +61,17 @@ git checkout master
 popd
 
 echo "Cleaning up..."
+if [ -d .git/modules ]; then
+    mv .git/modules .
+fi
 rm -rf .git
 rm readygxp.sh
 sed "s/readygxp/$TARGET/g" build.xml > .tmp && mv .tmp build.xml
 
 echo "Reinitializing repo..."
 git init
+if [ -d modules ]; then
+    mv modules .git/
+fi
 
 echo "Application template created in $TARGET"

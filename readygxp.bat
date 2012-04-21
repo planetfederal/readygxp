@@ -39,13 +39,14 @@ call git checkout master
 popd
 
 echo Cleaning up...
+move /y .git/modules modules
 rd /s /q .git
 del readygxp.*
 call sed "s/readygxp/%TARGET%/g" build.xml > tmp && del build.xml && ren tmp build.xml
 
 echo Reinitializing repo...
 call git init
-
+move /y modules .git/modules
 echo Application template created in %TARGET%
 
 goto success
