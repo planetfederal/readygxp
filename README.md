@@ -62,3 +62,21 @@ There are more Cargo options available to the `ant deploy`, `ant deploy-static` 
 * *cargo.password*: The password for the container management servlet. No default.
 * *cargo.context*: The name of the servlet context for the app (i.e. the url path for the app). Default is the project name specified in the `build.xml` file.
 
+## Preparing a Servlet Container for Remote Deployment
+
+The OpenGeo Suite's servlet containers are configured to accept remote deployments. On a fresh OpenGeo Suite installation, the password for remote deployments needs to be configured on the servlet container.
+
+For Windows and OSX installations, the password can be set in the `realm.properties` file in the `C:\Program Files\OpenGeo\OpenGeo Suite\etc\` (Windows) or `/opt/opengeo/suite/etc/` (OSX) folder. To use `mypassword` as password, this file would have a line like the following:
+
+    manager: mypassword,manager
+
+This means that the username is "manager" (`manager:`), and the account is valid for the "manager" group (`,manager`).
+
+For Linux installations, the password can be set in Tomcat's `tomcat-users.xml` file. On Debian based distributions (e.g. Ubuntu) with Tomcat 6, this file can be found in `/etc/tomcat6/`:
+
+    <tomcat-users>
+      <role rolename="manager"/>
+      <user username="manager" password="mypassword" roles="manager"/>
+    </tomcat-users>
+
+The above sets up a user with user name `manager` and password `mypassword`.
