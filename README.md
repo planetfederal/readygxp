@@ -1,3 +1,7 @@
+## Deprecation Warning
+
+Ready GXP is deprecated. Please use the [OpenGeo Suite Client SDK](http://opengeo.org/technology/sdk/) instead.
+
 # Ready GXP
 
 The intention of this project is to provide a simple reusable template for 
